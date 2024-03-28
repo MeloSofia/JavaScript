@@ -1,6 +1,7 @@
 import entraDados from "readline-sync"
 let salario = entraDados.questionFloat("Digite seu salario atual: ");
 let bonif = entraDados.question("Escolha a bonificacao: A, B, C, D: ")
+
 switch(bonif){
     case "A":
         console.log(`Salario atual: ${5/100 * salario}`);

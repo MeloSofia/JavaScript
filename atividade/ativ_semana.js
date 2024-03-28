@@ -24,3 +24,4 @@ switch (nome) {
         console.log("Sabado");
         break;
 }
+
