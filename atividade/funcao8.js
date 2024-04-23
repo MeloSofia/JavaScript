@@ -1,8 +1,18 @@
-import valor, { question } from "readline-sync";
-let altura = valor.questionFloat("Digite sua altura: ");
-let peso = valor.questionFloat("Digite seu peso: ");
-function calculo(altura, peso) {
-	let imc = peso / (altura * altura);
-	return imc.toFixed(2);
+import rl from 'readline-sync';
+
+// Declaração de função
+function IMC(altura, peso){
+    return peso / (altura * altura);
 }
-console.log("Seu I.M.C será de: ", calculo(altura, peso));
+
+let altura = parseFloat(rl.question('Digite a altura: '));
+let peso = parseFloat(rl.question('Digite o peso: '));
+console.log(`Seu IMC é de: ${IMC(altura, peso)}`);
+
+// Expressão de função
+const Indice = function(altura, peso) { return peso / (altura * altura) };
+console.log(`Seu IMC é de: ${Indice(altura, peso)}`);
+
+// Função de seta
+const Imc = (altura, peso) => peso / (altura * altura);
+console.log(`Seu IMC é de: ${Imc(altura, peso)}`);

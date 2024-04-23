@@ -1,9 +1,20 @@
-import valor from "readline-sync";
-let num = valor.questionFloat("Digite um valor: ");
-let porcent = valor.questionFloat("Digite a porcentagem desejada:");
-function acresc(num, porcent) {
-	let acrescimo = (num * porcent) / 100;
-	let valF = num + acrescimo;
-	return valF;
+import rl from 'readline-sync';
+
+// Declaração de função
+function Valor(valor, porcentagem){
+    return valor + porcentagem;
 }
-console.log(`O valor com acréscimo será de: `, acresc(num, porcent));
+
+let valor = parseInt(rl.question('Digite o valor: '));
+let porcentagem  = parseInt(rl.question('Digite o numero da porcentagem: '));
+console.log(`${Valor(valor, porcentagem)}`);
+
+// Expressão de função
+
+const valorp = function(valor, porcentagem){return Valor(valor, porcentagem)};
+console.log(`${valorp(valor, porcentagem)}`);
+
+// Função de seta
+
+const valorp1 = (valor, porcentagem) => Valor(valor, porcentagem);
+console.log(`${valorp1(valor, porcentagem)}`);

@@ -1,7 +1,21 @@
-import numeros from "readline-sync";
-let perg = numeros.questionFloat("Digite o primeiro numero: ");
-let perg2 = numeros.questionFloat("Digite o segundo numero: ");
-function soma(perg, perg2) {
-	return perg + perg2;
+import rl from 'readline-sync';
+
+// Declaração de função
+function somar(a, b){
+    return a + b;
 }
-console.log(`A soma dos numeros é: `, soma(perg, perg2));
+let a = parseInt(rl.question('Digite: '));
+let b = parseInt(rl.question('Digite: '));
+let resultado = somar(a, b);
+
+console.log(resultado);
+
+// Expressão de função
+
+const Soma = function(a, b){return somar(a, b)};
+console.log(`${Soma(a, b)}`);
+
+// Função de seta
+
+const adicao = (a, b) => somar(a, b);
+console.log(`${adicao(a, b)}`);

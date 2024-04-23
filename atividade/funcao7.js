@@ -1,8 +1,19 @@
-import valor from "readline-sync";
-let celsius = valor.questionFloat("Digite a temperatura em graus Celsius: ");
-function temp(celsius) {
-	let fahr = celsius * 1.8 + 32;
-	return fahr;
+import rl from 'readline-sync';
+
+// Declaração de função
+function Celsius(celsius){
+    return celsius * 1.8 + 32
 }
-console.log("Temperatura em graus Celsius: ",celsius)
-console.log("A temperatura em Fahrenheit é de: ", temp(celsius));
+
+let celsius = parseInt(rl.question('Digite a temperatura em Celsius: '))
+console.log(`A temperatura convertida em Fahrenheit é: ${Celsius(celsius)}°F`)
+
+// Expressão de função
+
+const C = function(celsius){return Celsius(celsius)};
+console.log(`A temperatura convertida em Fahrenheit é: ${C(celsius)}°F`);
+
+// Função de seta
+
+const CE= (celsius) => Celsius((celsius));
+console.log(`A temperatura convertida em Fahrenheit é: ${CE((celsius))}°F`);

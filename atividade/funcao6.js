@@ -1,7 +1,20 @@
-import calc from "readline-sync";
-let area = calc.questionInt("Digite o raio do circulo: ");
-function circulo(area) {
-	let circ = (area * area) * 3.14;
-  return circ
+import rl from 'readline-sync';
+
+// Declaração de função
+function Circulo(area){
+    return  (area * area) * 3.14;
 }
-console.log('A área do círculo é de: ', circulo(area))
+
+let area = parseInt(rl.question('Digite o raio do circulo: '));
+
+console.log(`A área do circulo é igual a: ${Circulo(area)}`);
+
+// Expressão de função
+
+const ar = function(A){return Circulo(A)};
+console.log(`A área do circulo é igual a: ${ar(area)}`);
+
+// Função de seta
+
+const are= (A) => Circulo(A);
+console.log(`A área do circulo é igual a: ${are(area)}`);
