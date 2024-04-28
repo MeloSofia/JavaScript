@@ -4,13 +4,22 @@ function validarLength() {
 	let cpf;
 	do {
 		cpf = rl.question("Digite seu CPF (11 digitos): ");
-    cpf = cpf.replace(/\./g, "");
-    cpf = cpf.replace(/[.-]/g, '');
+		cpf = cpf.replace(/\./g, "");
+		cpf = cpf.replace(/[.-]/g, "");
 	} while (cpf.length !== 11);
 	return cpf;
 }
+
 function formatarCPF(cpf) {
-  return cpf.slice(0, 3) + '.' + cpf.slice(3, 6) + '.' + cpf.slice(6, 9) + '-' + cpf.slice(9);
+	return (
+		cpf.slice(0, 3) +
+		"." +
+		cpf.slice(3, 6) +
+		"." +
+		cpf.slice(6, 9) +
+		"-" +
+		cpf.slice(9)
+	);
 }
 
 function validarPD(cpf) {
@@ -24,12 +33,12 @@ function validarPD(cpf) {
 		parseInt(cpf[6]) * 4 +
 		parseInt(cpf[7]) * 3 +
 		parseInt(cpf[8]) * 2;
-	let seg = (mult * 10)%11
-  return seg
+	let seg = (mult * 10) % 11;
+	return seg;
 }
 
-function validarSD(cpf){
-  const mult =
+function validarSD(cpf) {
+	const mult =
 		parseInt(cpf[0]) * 11 +
 		parseInt(cpf[1]) * 10 +
 		parseInt(cpf[2]) * 9 +
@@ -39,7 +48,7 @@ function validarSD(cpf){
 		parseInt(cpf[6]) * 5 +
 		parseInt(cpf[7]) * 4 +
 		parseInt(cpf[8]) * 3 +
-    parseInt(cpf[9]) * 2;
+		parseInt(cpf[9]) * 2;
 	let seg2 = (mult * 10) % 11;
 	return seg2;
 }
