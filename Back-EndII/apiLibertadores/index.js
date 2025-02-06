@@ -1,10 +1,17 @@
 import express from 'express';
-import {retornaCampeonatos } from './servico/retornaCampeonato_servico.js';
-import { retornaCampeonatosID } from './servico/retornaCampeonato_servico.js';
-import { retornaCampeonatosAno } from './servico/retornaCampeonatosAno.js';
-import { retornaCampeonatosTime } from './servico/retornaCampeonatosTime.js';
+import {retornaCampeonatos, retornaCampeonatosAno, retornaCampeonatosTime, retornaCampeonatosID } from './servico/retornaCampeonato_servico.js';
+import { cadastroCampeonato } from './servico/cadastroCampeonato_servico.js';
 
 const app = express();
+app.use(express.json());//Suporte para json no corpo da requisição
+
+app.post('/campeonatos', async (req,res) =>{
+    const campeao =req.body.campeao;
+    const vice = req.body.vice;
+    const ano = req.body.ano;
+    await cadastroCampeonato(campeao, vice, ano);
+    res.status(204).send({"Mensagem":"Cadastro efetivado com sucesso"});
+})
 
 app.get('/campeonatos', async(req,res) =>{
     let campeonatos;
