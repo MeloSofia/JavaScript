@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { validaUsuario } from "./validacao.js";
-import { cadastraLead } from "./servicos/cadastro_servico.js";
+import { validaUsuario } from "./validacao/validacao.js";
+import { cadastraLead } from "./servico/cadastro_servico.js";
 
 const app = new express();
 
